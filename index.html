@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ТАР-ТАРО — шуточные расклады онлайн</title>
+<meta name="description" content="Шуточные таро-расклады: карта дня, было-есть-будет, финансовый прогноз и да/нет. Всё сохраняется только в вашем браузере.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo"><span class="logo-orb">🔮</span> ТАР-ТАРО</div>
+  <nav class="nav">
+    <button class="nav-btn" data-nav="home">Расклады</button>
+    <button class="nav-btn" data-nav="history">История</button>
+    <button class="nav-btn" id="btnEditProfile" title="Изменить имя и знак">👤</button>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section id="screen-home" class="screen active">
+    <div class="hero">
+      <h1>Гадаем <span class="grad">серьёзно</span>,<br>толкуем <span class="grad">шуточно</span></h1>
+      <p class="hero-sub">Выбери расклад, сними карты и узнай, что думает о тебе вселенная. Спойлер: она не в восторге, но ей смешно.</p>
+      <div id="profileBox"></div>
+    </div>
+    <h2 class="h2">Выбери расклад</h2>
+    <div class="spreads" id="spreadList"></div>
+  </section>
+
+  <section id="screen-reading" class="screen">
+    <button class="btn btn-ghost back" data-nav="home">← К раскладам</button>
+    <div class="reading-head">
+      <div class="r-icon" id="rIcon"></div>
+      <div>
+        <h2 class="h2" id="rTitle"></h2>
+        <p class="muted" id="rDesc"></p>
+      </div>
+    </div>
+    <div class="pick-zone" id="pickZone">
+      <input id="question" class="input" type="text" maxlength="80"
+        placeholder="Вопрос к картам (необязательно): «стоит ли брать третий кусок торта?»">
+      <p class="pick-status" id="pickStatus"></p>
+      <div class="deck" id="deck"></div>
+      <button class="btn" id="btnReveal" disabled>✨ Раскрыть карты</button>
+    </div>
+    <div id="resultZone" class="hidden"></div>
+  </section>
+
+  <section id="screen-history" class="screen">
+    <div class="history-head">
+      <h2 class="h2">📜 История гаданий</h2>
+      <button class="btn btn-ghost btn-danger" id="btnClearHistory">Очистить</button>
+    </div>
+    <p class="muted small" id="historyStats"></p>
+    <div id="historyList"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  Развлекательный сервис. Не является финансовым, медицинским или семейным советом.
+  Все данные живут только в вашем браузере (localStorage) — сервера тут нет и не будет.
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
